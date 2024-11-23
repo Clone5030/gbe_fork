@@ -228,7 +228,7 @@ void Steam_HTTP::online_http_request(Steam_Http_Request *request, SteamAPICall_t
 
     FILE *hfile = std::fopen(request->target_filepath.c_str(), "wb");
     if (!hfile) {
-        PRINT_DEBUG("failed to open file for writing");
+        PRINT_DEBUG("failed to open file for writing", strerror(errno));
         send_callresult();
         return;
     }
